@@ -1,0 +1,22 @@
+
+              <div class="login-block">
+                <h3>Please Login!!</h3>
+                <hr>
+
+                  <form class="login-form" [formGroup]="loginFormGroup" (ngSubmit)="onSubmit(loginFormGroup)">
+                      <div class="form-group">
+                          <label for="username">Username:</label>
+                          <input type="text" placeholder="Username" id="username" name="username"  formControlName="Username">
+                          <div *ngIf="loginFormGroup.get('Username').hasError('required') && loginFormGroup.get('Username').touched" class="text-danger">Username is required</div>
+                      </div>
+                      <div class="form-group">
+                          <label for="password">Password:</label>
+                          <input type="password"  placeholder="Password" id="password" name="password" formControlName="Password">
+                          <div *ngIf="loginFormGroup.get('Password').hasError('required') && loginFormGroup.get('Password').touched" class="text-danger">Password is required</div>
+                      </div>
+                      <div class="form-group">
+                          <input [disabled]="!loginFormGroup.valid"  type="submit" class="form-control btn btn-primary" value="Login">
+                      </div>
+                  </form>
+              </div>
+      

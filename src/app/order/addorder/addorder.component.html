@@ -1,0 +1,53 @@
+<form [formGroup]="addform" (ngSubmit)="saveOrder(addform.value)">
+    <div class="modal-header">
+      <h4 class="modal-title">Add Order</h4>
+      <button type="button" class="close" aria-label="Close" (click)="activeModal.close('cancel')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="form-group col-6">
+          <label for="customerName"><strong>Customer Name:</strong> 
+          </label>
+          <input type="text" class="form-control" id="customerName" formControlName="CustomerName">
+        </div>
+        <div class="form-group col-6">
+            <label for="customerPhn"><strong>Customer Phone:</strong> 
+            </label>
+            <input type="number" class="form-control" maxlength="10" id="customerPhn" formControlName="CustomerPhn">
+          </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-6">
+          <label for="customerAdd"><strong>Customer Address:</strong> 
+          </label>
+          <textarea name="customerAdd" class="form-control" id="customerAdd" cols="30" rows="3"
+            formControlName="CustomerAdd"></textarea>
+        </div>
+      </div>
+      <div class="row">
+          <div class="form-group col-6">
+              <label for="orderDueDate"><strong>Order Due Date:</strong> 
+                </label>
+                <div class="input-group">
+                    <input class="form-control" placeholder="yyyy-mm-dd"
+                           name="dp" id="orderDueDate"  formControlName="OrderDueDate" ngbDatepicker #d="ngbDatepicker">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                    </div>
+                  </div>
+            </div>
+        <div class="form-group col-6">
+          <label for="orderTotal"><strong>Order Total:</strong> 
+          </label>
+          <input type="number" class="form-control" id="orderTotal" formControlName="OrderTotal">
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" (click)="activeModal.close('cancel')">Cancel</button>
+      <button type="submit" ngbAutofocus class="btn btn-primary">Save</button>
+    </div>
+  </form>
+  

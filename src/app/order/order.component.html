@@ -1,0 +1,42 @@
+<div class="container">
+   <h2>Order Management System</h2> 
+  <div>
+      <button type="button" style="margin: 10px;" class="btn btn-primary float-right" (click)="addOrder()">Add
+        </button>
+      <div class="justify-content-md-center">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Order Number</th>
+          <th scope="col">Customer Name</th>
+          <th scope="col">Customer Add</th>
+          <th scope="col">Customer Phn</th>
+          <th scope="col">Order Due Date</th>
+          <th scope="col">Order Total</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders; index as i">
+          <th scope="row">{{ order.OrderNumber}}</th>
+          <td>{{ order.CustomerName }}</td>
+          <td>{{ order.CustomerAdd }}</td>
+          <td>{{ order.CustomerPhn }}</td>
+          <td>{{ order.OrderDueDate|date:'yyyy-MM-dd' }}</td>
+          <td>{{ order.OrderTotal }}</td>
+          <td>
+            <button type="button" class="btn btn-default btn-sm updatebutton" (click)="editOrder(i)">Edit
+              <span class="glyphicon glyphicon-trash"></span>
+            </button>
+            <button type="button" class="btn btn-default btn-sm delbutton" (click)="deleteOrder(i)">Delete
+              <span class="glyphicon glyphicon-trash"></span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+  
